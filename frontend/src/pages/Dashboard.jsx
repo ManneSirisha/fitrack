@@ -81,7 +81,7 @@ export default function Dashboard() {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="pt-24 px-20 max-w-7xl mx-auto space-y-16 relative z-10"
+        className="pt-20 md:pt-24 w-full max-w-7xl mx-auto px-6 sm:px-10 md:px-12 space-y-8 sm:space-y-12 md:space-y-16 relative z-10"
       >
         {/* Welcome Section */}
         <motion.section variants={itemVariants} className="flex flex-col lg:flex-row justify-between items-end gap-10">
@@ -90,7 +90,7 @@ export default function Dashboard() {
               <span className="flex h-2 w-2 rounded-full bg-secondary animate-pulse" />
               <span className="text-[10px] font-space font-black text-white/40 uppercase tracking-[0.3em]">OPERATIONAL STATUS: OPTIMAL</span>
             </div>
-            <h1 className="font-space text-6xl md:text-8xl font-black text-white uppercase tracking-tighter leading-[0.85]">
+            <h1 className="font-space text-5xl sm:text-7xl md:text-8xl font-black text-white uppercase tracking-tighter leading-[0.85] break-words">
               DOMINATE, <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6C63FF] via-[#4ECDC4] to-[#6C63FF] bg-[length:200%_auto] animate-gradient">
                 {user?.name?.split(' ')[0] || 'OPERATIVE'}.
@@ -117,7 +117,7 @@ export default function Dashboard() {
         </motion.section>
 
         {/* Stats Grid */}
-        <motion.section variants={itemVariants} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <motion.section variants={itemVariants} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {stats.map((stat, i) => {
             const Icon = stat.icon;
             return (
@@ -143,7 +143,7 @@ export default function Dashboard() {
                 </div>
 
                 <div className="relative z-10">
-                  <h3 className="text-6xl font-space font-black text-white block tracking-tighter mb-1">{stat.value}</h3>
+                  <h3 className="text-4xl sm:text-5xl lg:text-6xl font-space font-black text-white block tracking-tighter mb-1">{stat.value}</h3>
                   <p className="text-[10px] font-space font-black text-white/20 uppercase tracking-[0.4em]">{stat.unit}</p>
                 </div>
 
@@ -158,13 +158,13 @@ export default function Dashboard() {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           {/* Performance Visualization */}
-          <motion.section variants={itemVariants} className="lg:col-span-2 glass-strong p-12 rounded-[56px] border border-white/5 relative overflow-hidden group">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-secondary/5 via-transparent to-transparent" />
+          <motion.section variants={itemVariants} className="lg:col-span-2 glass-strong p-8 sm:p-10 md:p-12 rounded-[54px] border border-white/5 relative group" style={{ overflow: 'visible' }}>
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-secondary/5 via-transparent to-transparent rounded-[54px]" />
             
-            <div className="flex justify-between items-start mb-16 relative z-10">
+            <div className="flex flex-col sm:flex-row justify-between items-start mb-12 sm:mb-16 relative z-10 gap-6">
               <div>
-                <h2 className="text-4xl font-space font-black text-white uppercase tracking-tighter mb-2">Performance Load</h2>
-                <p className="text-[10px] font-space font-black text-white/40 uppercase tracking-[0.4em]">Operational intensity across the current cycle</p>
+                <h2 className="text-3xl sm:text-4xl font-space font-black text-white uppercase tracking-tighter mb-2">Performance Load</h2>
+                <p className="text-[9px] sm:text-[10px] font-space font-black text-white/40 uppercase tracking-[0.4em]">Operational intensity across the current cycle</p>
               </div>
               <div className="flex gap-4">
                 {['D', 'W', 'M'].map((p) => (
@@ -176,7 +176,7 @@ export default function Dashboard() {
               </div>
             </div>
             
-            <div className="h-80 flex items-end justify-between gap-6 relative z-10">
+            <div className="h-80 flex items-end justify-between gap-6 relative z-10 pl-4 sm:pl-6 pr-2">
               {['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'].map((day, i) => {
                 const height = [60, 45, 85, 30, 55, 90, 40][i];
                 const isPeak = height > 80;
@@ -256,7 +256,7 @@ export default function Dashboard() {
 
             <motion.div 
               whileHover={{ scale: 1.02 }}
-              className="glass-strong p-8 rounded-[40px] border border-[#6C63FF]/30 bg-gradient-to-br from-[#6C63FF]/20 to-transparent relative overflow-hidden"
+              className="glass-strong p-6 sm:p-8 rounded-[40px] border border-[#6C63FF]/30 bg-gradient-to-br from-[#6C63FF]/20 to-transparent relative overflow-hidden"
             >
               {/* Scanline Effect */}
               <div className="absolute inset-0 bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.05)_50%)] bg-[size:100%_2px] pointer-events-none" />
